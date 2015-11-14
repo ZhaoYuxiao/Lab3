@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>欢迎使用图书管理系统</title>
+</head>
+<center>
+<body>
+<p><font size="6"><strong>欢迎使用图书管理系统</strong></font></p>
+<HR width="100%" color=#987cb9 SIZE=5 />
+
+{% if error %}
+<p style="color: red;"><font size="5"><strong>您输入的作者不在数据库中，请手动添加信息</strong></font></p>
+{% endif %}
+<form action="/search/" method="get" >
+<table>
+<tr><td>
+<input type="text" name="q" required="required">
+</td></tr>
+
+<tr><td>
+<input type="reset" />
+<input type="submit" value="搜索"/>
+<a href="/append/">
+<input type=button  value="添加"/> 
+</a> 
+</td></tr>
+<table>
+
+{% if authors %}
+<table border="1" width="160">
+<tr>
+<th width="80">作者序号</th><th width="80">姓名</th>
+</tr>
+{% for au in authors %}
+
+<tr>
+ <td style="text-align:center">{{ au.authorid }}</td>
+ <td style="text-align:center">{{ au.name }}</td>
+</tr>
+{% endfor %}
+{% endif %}
+</table>
+
+</form>
+</body>
+</center>
+
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>欢迎使用图书管理系统</title>
+</head>
+
+<center>
+<body>
+<p><font size="6"><strong>欢迎使用图书管理系统</strong></font></p>
+<HR width="100%" color=#987cb9 SIZE=5 />
+<p><font size="6"><strong>请输入需要更改的信息</strong></font></p>
+{% if errors %}
+<ul>
+{% for error in errors %}
+<li style="color: red;">{{ error }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+<form  method="get">
+<table border="1">
+        <tr>
+            <td><label  for="aut">作者：</label></td><td><label  for="pub">出版社：</label></td>
+			<td><label  for="publi">出版日期：</label></td><td><label  for="pri">价格：</label></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="aut" name="author" value="{{auth.name}}" required="required"/></td>
+            <td><input type="text" id="pub" name="publisher" value="{{book.publisher}}" required="required"/></td>
+			<td><input type="date" id="publi" name="publishDate" value="{{book.publishDate}}" placeholder="XXXX-XX-XX" required="required"/></td>
+			<td><input type="number" min="1" id="pri" name="price" value="{{book.price}}" required="required"/></td>
+        </tr>
+    </table>
+	<input type="reset" />
+    <input type="submit" />
+</form>
+</body>
+</center>
+
+</html>

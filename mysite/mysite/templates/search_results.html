@@ -1,0 +1,46 @@
+﻿<html>
+<head>
+<title>欢迎使用图书管理系统</title>
+</head>
+<center>
+<body>
+
+<p><font size="6">你搜索的是：</font><font size="6"><strong style="color: red;">{{ query }}</strong></font></p>
+<HR width="100%" color=#987cb9 SIZE=5 />
+{% if books %}
+
+<table border="1">
+<tr>
+<th>作者序号</th><th>书名</th><th>出版日期</th> <th>op1</th> <th>op2</th> 
+</tr>
+{% for book in books %}
+<tr>
+<td>{{ book.authorid_id }}</td>
+<td><a href="/xiangxi/p1{{book.isbn}}/">{{ book.title }}</td>
+<td>{{ book.publishDate }}</td>
+<td><a href="/delete/p1{{book.isbn}}p2{{book.authorid_id}}/">删除</a></td>
+<td><a href="/update/p1{{book.isbn}}p2{{book.authorid_id}}/">修改</a></td>
+
+</tr>
+{% endfor %}
+</table>
+
+<table >
+<tr>
+<td><a href="/">返回</a></td>
+</tr>
+</table>
+
+{% else %}
+<p>在你的搜索条件下没有书籍。</p>
+<table >
+<tr>
+<td><a href="/">返回</a></td>
+</tr>
+</table>
+{% endif %}
+
+</body>
+</center>
+
+</html>

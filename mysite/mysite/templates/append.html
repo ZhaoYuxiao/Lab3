@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>欢迎使用图书管理系统</title>
+</head>
+<center>
+<body>
+<p><font size="6"><strong>欢迎使用图书管理系统</strong></font></p>
+<HR width="100%" color=#987cb9 SIZE=5 />
+<p><font size="6"><strong>请输入书籍的信息</strong></font></p>
+{% if errors %}
+<ul>
+{% for error in errors %}
+<li style="color: red;">{{ error }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+<form  method="get">
+<table>
+		<tr>
+            <td><label  for="bid">ISBN：</label></td>
+            <td><input type="number" min="1" max="2147483647" id="bid" name="isbn" required="required"/></td>
+        </tr>
+		<tr>
+            <td><label  for="tit">书名：</label></td>
+            <td><input type="text" id="tit" name="title" required="required"/></td>
+        </tr>
+        <tr>
+            <td><label  for="aut">作者：</label></td>
+            <td><input type="text"  id="aut" name="name" required="required"/></td>
+        </tr>
+        <tr>
+            <td><label  for="pub">出版社：</label></td>
+            <td><input type="text" id="pub" name="publisher" required="required"/></td>
+        </tr>
+		<tr>
+            <td><label  for="publi">出版日期：</label></td>
+            <td><input type="date" id="publi" name="publishDate"  required="required"/></td>
+        </tr>
+		<tr>
+            <td><label  for="pri">价格：</label></td>
+            <td><input type="number" min="0" id="pri" name="price" required="required"/></td>
+        </tr>
+        <tr>
+			<td></td>
+            <td>
+                <input type="reset" />
+				<input type="submit" />
+				<a href="/">
+				<input type=button  value="返回"/> 
+				</a> 
+			</td>
+        </tr>
+    </table>
+</form>
+</body>
+</center>
+
+</html>
